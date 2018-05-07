@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script.SceneScript;
 using UnityEngine.UI;
 
-public class testFadeinout : MonoBehaviour {
+public class level : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
-        GetComponent<Fadeinout>().imageFadeout(GetComponent<Image>());
+        GetComponent<Text>().text = "";
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 }

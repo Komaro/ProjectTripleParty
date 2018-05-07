@@ -7,6 +7,6 @@ public class sceneChange : MonoBehaviour {
 
     public void OnClick()
     {
-        SceneManager.LoadScene("mainScene");
+        SceneManager.LoadScene("MainLoadingScene");
     }
 }
