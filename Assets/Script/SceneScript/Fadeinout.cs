@@ -17,13 +17,27 @@ namespace Assets.Script.SceneScript
         private Color color;
         private Image fadeImage;
         
-        public void imageFadein(Image getImage) { StartCoroutine(fadeIn(getImage)); }
         public void imageFadeout(Image getImage) { StartCoroutine(fadeOut(getImage)); }
+        public void imageFadein(Image getImage) { StartCoroutine(fadeIn(getImage)); }
 
+        //public void testfadein(Image getImage) { StartCoroutine(testin(getImage)); }
+
+        //IEnumerable testin(Image getImage)
+        //{
+        //    fadeImage = getImage;
+
+        //    while()
+        //    {
+        //        yield return null;
+        //    }
+        //}
+        
         IEnumerator fadeIn(Image getImage)
         {
             fadeImage = getImage;
 
+            color = fadeImage.color;
+            
             start = 0f;
             end = 1f;
             time = 0f;

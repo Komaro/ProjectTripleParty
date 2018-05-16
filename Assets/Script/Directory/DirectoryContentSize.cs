@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Script.StartingWork.List;
-
+using Assets.Script.ObjectScript;
 
 public class DirectoryContentSize : MonoBehaviour {
 
@@ -18,30 +18,30 @@ public class DirectoryContentSize : MonoBehaviour {
 
         directoryPrefabs = Resources.Load("Prefabs/DictionaryCharacterCard") as GameObject;
         scrollRect = GetComponent<ScrollRect>();
-        
-        addContentItem();
-        setContentSize();
+
+        StartCoroutine(addContentItem_cor());
 	}
 
-	void addContentItem()
+    IEnumerator addContentItem_cor()
     {
-        List<CharacterForm> characters =  CharacterList.getInstance().getCharacterList();
-
-        foreach(CharacterForm character in characters)
+        List<CharacterForm> characters = CharacterList.getInstance().getCharacterList();
+        
+        foreach (CharacterForm character in characters)
         {
             newObject = MonoBehaviour.Instantiate(directoryPrefabs, scrollRect.content);
             newObject.name = "char_" + character.No;
-            
+
+            newObject.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             newObject.GetComponent<DirectoryObject>().Name.text = character.Name;
-            newObject.GetComponent<DirectoryObject>().Image.sprite = character.Sprite;
+            newObject.GetComponent<DirectoryObject>().Image.sprite = character.cutSprite;
+            newObject.GetComponent<DirectoryObject>().getForm = character;
+
+            newObject.AddComponent<objectScaleChanger>().scaleupdown(newObject.GetComponent<Image>(), 0.2f, 1.1f, 1.0f, 0.7f, 0.8f);
+
+            yield return new WaitForSeconds(0.1f);
         }
 
-        //Testing Code
-        //for (int i = 1; i < 61; i++)
-        //{
-        //    newObject = MonoBehaviour.Instantiate(directoryPrefabs, scrollRect.content);
-        //    newObject.name = "item_" + i;
-        //}
+        setContentSize();
     }
 
     void setContentSize()

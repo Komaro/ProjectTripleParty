@@ -11,6 +11,7 @@ public class CharacterList{
     private static CharacterList instance;
 
     private List<CharacterForm> Characters = new List<CharacterForm>();
+    private List<CharacterForm> filteringCharacters = new List<CharacterForm>();
 
     public CharacterList()
     {
@@ -26,10 +27,33 @@ public class CharacterList{
 
         return instance;
     }
+    
     public List<CharacterForm> getCharacterList()
     {
         return Characters;
-    }
+    } // All character
+    public List<CharacterForm> getCharacterList(int nofilter)
+    {
+        filteringCharacters.Clear();
+
+        foreach (CharacterForm readForm in Characters)
+        {
+            if (readForm.No == nofilter) { filteringCharacters.Add(readForm); }
+        }
+
+        return filteringCharacters;
+    } // Character no filtering
+    public List<CharacterForm> getCharacterList(string countryFilter)
+    {
+        filteringCharacters.Clear();
+
+        foreach (CharacterForm readForm in Characters)
+        {
+            if (readForm.Country == countryFilter) { filteringCharacters.Add(readForm); }
+        }
+
+        return filteringCharacters;
+    } // Character country filtering
 
     private void createCharacterList()
     {
