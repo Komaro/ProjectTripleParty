@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114192505609620480}
   m_Layer: 5
   m_Name: MaintenanceButton
-  m_TagString: Untagged
+  m_TagString: Navy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114516390353957910}
   m_Layer: 5
   m_Name: GoupNavyMenuPanel
-  m_TagString: Untagged
+  m_TagString: Navy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 114221280240165242}
   m_Layer: 5
   m_Name: GroupingButton
-  m_TagString: Untagged
+  m_TagString: Navy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
