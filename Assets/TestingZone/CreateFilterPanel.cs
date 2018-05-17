@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Script.TestingZone;
+using UnityEngine.EventSystems;
+using Assets.Script.ObjectScript;
 
 public class CreateFilterPanel : MonoBehaviour {
 
     public GameObject filterPrefabs;
     public GameObject filterPanel;
     public Button scrollRect;
-    private bool filterOpen = false;
 
     private void Start()
     {
@@ -17,9 +17,20 @@ public class CreateFilterPanel : MonoBehaviour {
         scrollRect = GetComponent<Button>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape key was pressed.");
+            GetComponent<Button>().enabled = true;
+            Destroy(filterPanel);
+            filterPanel = null;
+        }
+    }
+
     public void createPanel()
     {
-        if(filterOpen == false)
+        if(GetComponent<Button>().enabled == true)
         {
             CreatePanel();
         }
@@ -31,9 +42,8 @@ public class CreateFilterPanel : MonoBehaviour {
         filterPanel.name = "Filter Paenl";
         
         filterPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 500);
+        filterPanel.AddComponent<objectScaleChanger>().scaleUpDown(filterPanel.GetComponent<Image>(), 0f, 1f, 1f, 0.15f, 0f);
 
         GetComponent<Button>().enabled = false;
-
-        filterOpen = true;
     }
 }

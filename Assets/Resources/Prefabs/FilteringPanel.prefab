@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114065922457934198}
   m_Layer: 5
   m_Name: Content
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 224532422666037186}
   m_Layer: 5
   m_Name: Sliding Area
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 114078424026079900}
   m_Layer: 5
   m_Name: Viewport
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 114616961082021410}
   m_Layer: 5
   m_Name: FilteringPanel
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,8 +122,8 @@ GameObject:
   - component: {fileID: 222310793388879846}
   - component: {fileID: 114937393697447286}
   m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
+  m_Name: Filter Option Text
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,11 +141,11 @@ GameObject:
   - component: {fileID: 114931175332825412}
   m_Layer: 5
   m_Name: Scrollbar Vertical
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1889516914752534
 GameObject:
   m_ObjectHideFlags: 1
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 224282609622470952}
   m_Layer: 5
   m_Name: Sliding Area
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 114500256310092794}
   m_Layer: 5
   m_Name: Scrollbar Horizontal
-  m_TagString: Untagged
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,8 +191,8 @@ GameObject:
   - component: {fileID: 222635710904885882}
   - component: {fileID: 114651459550981910}
   m_Layer: 5
-  m_Name: Scroll View
-  m_TagString: Untagged
+  m_Name: Filter Scroll View
+  m_TagString: Filter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114636833057394890}
   m_HandleRect: {fileID: 224137286562394878}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -478,8 +478,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114982315474418008}
   m_HandleRect: {fileID: 224270791435731038}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -518,7 +518,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD544\uD130"
+  m_Text: "\uAD6D\uAC00"
 --- !u!114 &114982315474418008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,15 +652,15 @@ RectTransform:
   m_GameObject: {fileID: 1640218076403912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224503874745903442}
   - {fileID: 224871127627782120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -199.30002, y: -134885.4}
   m_SizeDelta: {x: 450.2, y: 415.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224377413313541636

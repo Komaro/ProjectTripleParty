@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Information
+  - Filter
+  - Navy
+  - Land
+  - Air
   layers:
   - Default
   - TransparentFX

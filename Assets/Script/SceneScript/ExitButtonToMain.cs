@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class directorySceneChange : MonoBehaviour {
+public class ExitButtonToMain : MonoBehaviour {
 
-    public void OnClick()
+    public void onClick()
     {
-        SceneManager.LoadScene("DirectoryScene");
+        SceneManager.LoadScene("MainScene");
     }
 }

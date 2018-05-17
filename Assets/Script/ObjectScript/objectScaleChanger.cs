@@ -16,25 +16,23 @@ namespace Assets.Script.ObjectScript
         private Image upImage;
         private Vector3 vector;
 
-        public void scaleupdown(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime){
-            StartCoroutine(scaleUpAndDown(getImage, upStart, upEnd, downEnd, upTime, downTime));
+        public void scaleUpDown(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime){
+            StartCoroutine(scaleUpAndDownImage(getImage, upStart, upEnd, downEnd, upTime, downTime));
+        }
+        public void scaleRightAndBottomUp(Image getImage, float rightStart, float rightEnd, float downStart, float downEnd, float rightTime, float downTime) {
+            StartCoroutine(scaleRightAndBottomUpImage(getImage, rightStart, rightEnd, downStart, downEnd, rightTime, downTime));
         }
 
-        IEnumerator scaleUpAndDown(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime)
+        IEnumerator scaleUpAndDownImage(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime)
         {
-            Image upImage = getImage;
-            time = 0f;
-            animTime = upTime;
-
-            start = upStart;
-            end = upEnd;
-
-            vector = new Vector3((float)0.1, (float)0.1);
+            upImage = getImage;
+            resetParameter(upTime, upStart, upEnd);
+            
+            vector = new Vector3((float)0, (float)0);
 
             while (upImage.transform.localScale.x < upEnd)
             {
                 time += Time.deltaTime / this.animTime;
-
                 vector.x = Mathf.Lerp(start, end, time);
                 vector.y = Mathf.Lerp(start, end, time);
 
@@ -43,15 +41,11 @@ namespace Assets.Script.ObjectScript
                 yield return null;
             }
 
-            time = 0f;
-            start = upEnd;
-            end = downEnd;
-            animTime = downTime;
-
+            resetParameter(downTime, upEnd, downEnd);
+            
             while (upImage.transform.localScale.x > downEnd)
             {
                 time += Time.deltaTime / this.animTime;
-
                 vector.x = Mathf.Lerp(start, end, time);
                 vector.y = Mathf.Lerp(start, end, time);
 
@@ -60,6 +54,42 @@ namespace Assets.Script.ObjectScript
                 yield return null;
             }
         }
+        IEnumerator scaleRightAndBottomUpImage(Image getImage, float rightStart, float rightEnd, float downStart, float downEnd, float rightTime, float downTime)
+        {
+            upImage = getImage;
 
+            resetParameter(rightTime, rightStart, rightEnd);
+            vector.y = downStart;
+
+            while(upImage.transform.localScale.x < rightEnd)
+            {
+                time += Time.deltaTime / this.animTime;
+                vector.x = Mathf.Lerp(start, end, time);
+
+                upImage.transform.localScale = vector;
+
+                yield return null;
+            }
+
+            resetParameter(downTime, downStart, downEnd);
+
+            while (upImage.transform.localScale.y < downEnd)
+            {
+                time += Time.deltaTime / this.animTime;
+                vector.y = Mathf.Lerp(start, end, time);
+
+                upImage.transform.localScale = vector;
+
+                yield return null;
+            }
+        }
+
+        private void resetParameter(float time, float start, float end)
+        {
+            this.time = 0f;
+            animTime = time;
+            this.start = start;
+            this.end = end;
+        }
     }
 }
