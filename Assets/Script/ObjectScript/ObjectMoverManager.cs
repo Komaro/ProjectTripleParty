@@ -13,7 +13,6 @@ namespace Assets.Script.ObjectScript
         private float time;
 
         private Vector3 vector;
-        private bool coroutineContinue = true;
 
         public void ObjectMove(GameObject getObject, Vector3 dest, float moveTime)
         {
