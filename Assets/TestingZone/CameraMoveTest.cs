@@ -40,7 +40,7 @@ public class CameraMoveTest : MonoBehaviour {
             camera.orthographicSize += 0.5f;
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && camera.orthographicSize > 1.0)
         {
             camera.orthographicSize -= 0.5f;
         }

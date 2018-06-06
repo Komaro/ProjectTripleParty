@@ -9,6 +9,8 @@ TagManager:
   - Navy
   - Land
   - Air
+  - AllyFleet
+  - EnemyFleet
   layers:
   - Default
   - TransparentFX
