@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d161b5e7edd0deb4f8c00ecc49a58e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   order: 0
   dest: {x: 0, y: 0, z: 0}
 --- !u!50 &291406176
@@ -379,6 +379,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22cd1e47e859ef4fb8d3639f4f36c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  findEnemy: []
+  distance: 2.5
+  dist: 0
+  closestDistSqr: 0
+  closestEnemy: {fileID: 0}
+  fireBatteryAvailable: 0
+  fireBatteryCooltimeSec: 5
+  selectTarget: {fileID: 0}
 --- !u!1 &371310112
 GameObject:
   m_ObjectHideFlags: 0
