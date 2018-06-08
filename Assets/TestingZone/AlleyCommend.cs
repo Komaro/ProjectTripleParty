@@ -28,13 +28,7 @@ public class AlleyCommend : MonoBehaviour {
         StartCoroutine(fireBatteryCooltime());
        
 	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("available " + collision.tag);
-       
-    }
-
+    
     // Update is called once per frame
     void Update () {
 
