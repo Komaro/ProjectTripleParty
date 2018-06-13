@@ -42,7 +42,7 @@ public class CreateFilterPanel : MonoBehaviour {
         filterPanel.name = "Filter Paenl";
         
         filterPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 500);
-        filterPanel.AddComponent<objectScaleChanger>().scaleUpDown(filterPanel.GetComponent<Image>(), 0f, 1f, 1f, 0.15f, 0f);
+        filterPanel.AddComponent<ObjectScaleChanger>().scaleUpDown(filterPanel.GetComponent<Image>(), 0f, 1f, 1f, 0.15f, 0f);
 
         GetComponent<Button>().enabled = false;
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Assets.Script.ObjectScript
 {
-    public class objectScaleChanger : MonoBehaviour
+    public class ObjectScaleChanger : MonoBehaviour
     {
         public float animTime = 0f;
 

@@ -18,8 +18,6 @@ public class CircleLineScript : MonoBehaviour {
         CreatePoints();
     }
     
-
-
     void CreatePoints()
     {
 

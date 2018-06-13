@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ExitButtonToMain : MonoBehaviour {
-
+    
     public void onClick()
     {
         SceneManager.LoadScene("MainScene");

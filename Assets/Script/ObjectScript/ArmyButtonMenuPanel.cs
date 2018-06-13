@@ -41,7 +41,7 @@ namespace Assets.Script.ObjectScript
                 }
             }
         }
-
+        
         /*
         public void NavyButtonClick(GameObject parentObject) {
 
@@ -79,7 +79,7 @@ namespace Assets.Script.ObjectScript
             createPanel = MonoBehaviour.Instantiate(panelPrefabs, parentObject.transform);
             createPanel.name = "MenuPanel";
 
-            createPanel.AddComponent<objectScaleChanger>().scaleRightAndBottomUp(createPanel.GetComponent<Image>(), 0f, 1f, 0.1f, 1f, 0.2f, 0.3f);
+            createPanel.AddComponent<ObjectScaleChanger>().scaleRightAndBottomUp(createPanel.GetComponent<Image>(), 0f, 1f, 0.1f, 1f, 0.2f, 0.3f);
             
             GetComponent<Button>().enabled = false;
 

@@ -26,7 +26,6 @@ namespace Assets.TestingZone
 
             return Instance;
         }
-
         
         
         public GameObject[] getEnemyList()

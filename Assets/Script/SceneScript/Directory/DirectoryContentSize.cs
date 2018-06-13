@@ -36,7 +36,7 @@ public class DirectoryContentSize : MonoBehaviour {
             newObject.GetComponent<DirectoryObject>().Image.sprite = character.cutSprite;
             newObject.GetComponent<DirectoryObject>().getForm = character;
 
-            newObject.AddComponent<objectScaleChanger>().scaleUpDown(newObject.GetComponent<Image>(), 0.2f, 1.1f, 1.0f, 0.7f, 0.8f);
+            newObject.AddComponent<ObjectScaleChanger>().scaleUpDown(newObject.GetComponent<Image>(), 0.2f, 1.1f, 1.0f, 0.7f, 0.8f);
 
             yield return new WaitForSeconds(0.1f);
         }
