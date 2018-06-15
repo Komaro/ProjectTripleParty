@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Script.ObjectScript;
 
-public class MainSceneChange : MonoBehaviour {
+public class MainSceneButton : MonoBehaviour {
+    
+    void Start()
+    {
+        gameObject.AddComponent<ObjectMoverManager>();
 
+        InvokeRepeating("runRotation", Random.Range(0f, 20f), 10f);
+    }
+
+    
+
+    
     public void OnClick()
     {
         switch(gameObject.name)
@@ -20,5 +31,10 @@ public class MainSceneChange : MonoBehaviour {
                 break;
         }
 
+    }
+
+    private void runRotation()
+    {
+        GetComponent<ObjectMoverManager>().ObjectRotation_180(gameObject, 5f);
     }
 }
