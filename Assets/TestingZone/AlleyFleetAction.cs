@@ -20,18 +20,33 @@ public class AlleyFleetAction : MonoBehaviour {
 
     public GameObject priorityTarget;
     public GameObject currentTarget;
-    
-    
+
+    void Start()
+    {
+        // Temp initialization
+        alleyRange = 25f;
+        targetingTime = 5f;
+
+        enemyList = new List<TargetingList>();
+
+        InvokeRepeating("enemyDistanceCalc", 0, 1f);
+        InvokeRepeating("selectTarget", 0, targetingTime);
+    }
+
     // Enemy Searching
     private void OnTriggerEnter2D(Collider2D col)
     {
+        TargetingList enterTarget;
+
         if (col.tag.Equals("EnemyFleet") && CheckingEnemyList(col.gameObject))
         {
             Debug.Log("Enter Enemy");
-            enemyList.Add(new TargetingList(col.gameObject));
+
+            enterTarget = new TargetingList(col.gameObject);
+            enemyDistanceCalc(enterTarget);
+            enemyList.Add(enterTarget);
         }
     }
-
     private void OnTriggerExit2D(Collider2D col)
     {
         if (currentTarget == col.gameObject) currentTarget = null;
@@ -52,7 +67,6 @@ public class AlleyFleetAction : MonoBehaviour {
 
         return true;
     }
-
     private TargetingList CheckingExitList(GameObject other)
     {
         foreach (TargetingList select in enemyList)
@@ -63,60 +77,48 @@ public class AlleyFleetAction : MonoBehaviour {
         return null;
     }
 
-
-    // Use this for initialization
-    void Start () {
-
-        // Temp initialization
-        alleyRange = 25f;
-        targetingTime = 5f;
-        
-        enemyList = new List<TargetingList>();
-
-        //InvokeRepeating("SearchingEnemy", 0, 0.25f);
-        InvokeRepeating("selectTarget", 0, targetingTime);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
-    // Fix Distance Dectect Method
-    
-    //public float targetDistance;
-
-    //void SearchingEnemy()
-    //{
-    //    foreach(GameObject target in EnemyInformation.getInstance().getEnemyList())
-    //    {
-    //        targetDistance = (target.transform.position - transform.position).sqrMagnitude;
-
-    //        if(targetDistance <= alleyRange && !enemyList.Contains(target))
-    //        {
-    //            Debug.Log("enemy add");
-    //            enemyList.Add(target);
-    //        }
-    //        else if(targetDistance > alleyRange && enemyList.Contains(target))
-    //        {
-    //            Debug.Log("enemy delete");
-    //            enemyList.Remove(target);
-    //        }
-    //    }
-    //}
-    
-
-    void selectTarget()
+    // Calc enemyList distance
+    private void enemyDistanceCalc()
     {
         if (enemyList.Count == 0) return;
 
-        if(priorityTarget == null)
+        foreach (TargetingList target in enemyList)
         {
-            // foareach() // Min distance enemy select
+            target.Distance = (target.Object.transform.position - transform.position).sqrMagnitude;
+            Debug.Log(target.Object.name + " " + target.Distance);
         }
     }
+    private void enemyDistanceCalc(TargetingList enemy)
+    {
+        enemy.Distance = (enemy.Object.transform.position - transform.position).sqrMagnitude;
+    }
+    
+    // Target Select (Min or Priority)
+    private void selectTarget()
+    {
+        if (enemyList.Count == 0) return;
+        
+        if(priorityTarget == null && currentTarget == null)
+        {
+            currentTarget = minDistanceTarget().Object;
+        }
+        else if(priorityTarget != null)
+        {
+            currentTarget = priorityTarget;
+        }
+    }
+    public TargetingList minTarget = new TargetingList(9999999f);
+    private TargetingList minDistanceTarget()
+    { 
+        foreach(TargetingList target in enemyList)
+        {
+            if (minTarget.Distance > target.Distance) minTarget = target;
+        }
 
+        return minTarget;
+    }
+
+    // Firing Wapeon
     void firingBattery()
     {
 

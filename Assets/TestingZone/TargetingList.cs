@@ -15,5 +15,9 @@ namespace Assets.TestingZone
         {
             this.Object = Object;
         }
+        public TargetingList(float dummyDistance)
+        {
+            Distance = dummyDistance;
+        }
     }
 }

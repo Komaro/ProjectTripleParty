@@ -236,7 +236,6 @@ GameObject:
   - component: {fileID: 291406176}
   - component: {fileID: 291406177}
   - component: {fileID: 291406175}
-  - component: {fileID: 291406179}
   - component: {fileID: 291406178}
   - component: {fileID: 291406180}
   m_Layer: 0
@@ -372,25 +371,6 @@ MonoBehaviour:
   moveDest: {x: 0, y: 0, z: 0}
   priorityTarget: {fileID: 0}
   currentTarget: {fileID: 0}
---- !u!114 &291406179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291406172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22cd1e47e859ef4fb8d3639f4f36c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  findEnemy: []
-  distance: 2.5
-  dist: 0
-  closestDistSqr: 0
-  closestEnemy: {fileID: 0}
-  fireBatteryAvailable: 0
-  fireBatteryCooltimeSec: 5
-  selectTarget: {fileID: 0}
 --- !u!58 &291406180
 CircleCollider2D:
   m_ObjectHideFlags: 0

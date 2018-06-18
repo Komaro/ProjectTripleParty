@@ -10,12 +10,9 @@ public class MainSceneButton : MonoBehaviour {
     {
         gameObject.AddComponent<ObjectMoverManager>();
 
-        InvokeRepeating("runRotation", Random.Range(0f, 20f), 10f);
+        InvokeRepeating("runRotation", Random.Range(0f, 20f), 20f);
     }
 
-    
-
-    
     public void OnClick()
     {
         switch(gameObject.name)
