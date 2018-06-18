@@ -21,16 +21,26 @@ public class AlleyFleetAction : MonoBehaviour {
     public GameObject priorityTarget;
     public GameObject currentTarget;
 
+    // Weapon & Skill
+    private List<WeaponSystem> weaponList;
+
     void Start()
     {
         // Temp initialization
         alleyRange = 25f;
         targetingTime = 5f;
 
+        weaponList = new List<WeaponSystem>();
+        weaponList.Add(new WeaponSystem("5 inch Gun", 20, 25, 5));
+
         enemyList = new List<TargetingList>();
+        
 
         InvokeRepeating("enemyDistanceCalc", 0, 1f);
         InvokeRepeating("selectTarget", 0, targetingTime);
+        InvokeRepeating("firingBattery", 0, 0.25f);
+
+        StartCoroutine(WeaponCoolTime());
     }
 
     // Enemy Searching
@@ -85,7 +95,7 @@ public class AlleyFleetAction : MonoBehaviour {
         foreach (TargetingList target in enemyList)
         {
             target.Distance = (target.Object.transform.position - transform.position).sqrMagnitude;
-            Debug.Log(target.Object.name + " " + target.Distance);
+            //Debug.Log(target.Object.name + " " + target.Distance);
         }
     }
     private void enemyDistanceCalc(TargetingList enemy)
@@ -121,6 +131,46 @@ public class AlleyFleetAction : MonoBehaviour {
     // Firing Wapeon
     void firingBattery()
     {
+        if (currentTarget == null) return;
+        else
+        {
+            // Firing weapon script
+            foreach (WeaponSystem selectWeapon in weaponList)
+            {
+                // Fix selecWeapon.range <= currentTarget distance (gameObject currentTarget -> TargetList currentTarget)
+                if(selectWeapon.readyToFire)
+                {
+                    // Fire weapon
+                    Debug.Log("Fire battery " + selectWeapon.weaponName);
 
+                    selectWeapon.currentCoolTime = selectWeapon.coolTime;
+                    selectWeapon.readyToFire = false;
+                }
+            }
+        }
+    }
+
+    IEnumerator WeaponCoolTime()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1.0f);
+
+            foreach(WeaponSystem selectWeapon in weaponList)
+            {
+                if(!selectWeapon.readyToFire)
+                {
+                    selectWeapon.currentCoolTime--;
+                    Debug.Log(selectWeapon.weaponName + " left cooltime : " + selectWeapon.currentCoolTime);
+                }
+
+                if(selectWeapon.currentCoolTime <= 0)
+                {
+                    selectWeapon.currentCoolTime = selectWeapon.coolTime;
+                    selectWeapon.readyToFire = true;
+                    Debug.Log("Ready to fire");
+                }
+            }
+        }
     }
 }
