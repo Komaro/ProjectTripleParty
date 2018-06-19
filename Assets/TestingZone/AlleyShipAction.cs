@@ -3,41 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.TestingZone;
 
-public class AlleyFleetAction : MonoBehaviour {
+public class AlleyShipAction : MonoBehaviour {
 
     // Alley Base Status
     public float alleyRange;
     public float targetingTime;
+    public float hitPoint;
 
     // Alley Move Status
     public float speed;
-    public bool moveOrder = false;
-    public Vector3 moveDest;
 
     // Alley Searching And Targeting Parameter
-    //private List<GameObject> enemyList; // not GameObject => GameObject + distance value (objectDistance)
     private List<TargetingList> enemyList;
 
     public GameObject priorityTarget;
     public GameObject currentTarget;
 
+    public bool selectTargetOn;
+
     // Weapon & Skill
     private List<WeaponSystem> weaponList;
 
-    void Start()
+    void Awake()
     {
         // Temp initialization
+        speed = 1f;
+        hitPoint = 100f;
         alleyRange = 25f;
         targetingTime = 5f;
 
         weaponList = new List<WeaponSystem>();
         weaponList.Add(new WeaponSystem("5 inch Gun", 20, 25, 5));
 
-        enemyList = new List<TargetingList>();
-        
+        selectTargetOn = false;
 
+        enemyList = new List<TargetingList>();
+    }
+
+    void Start()
+    {
         InvokeRepeating("enemyDistanceCalc", 0, 1f);
-        InvokeRepeating("selectTarget", 0, targetingTime);
+        InvokeRepeating("startSelectTarget", 0, 1f);
         InvokeRepeating("firingBattery", 0, 0.25f);
 
         StartCoroutine(WeaponCoolTime());
@@ -104,6 +110,22 @@ public class AlleyFleetAction : MonoBehaviour {
     }
     
     // Target Select (Min or Priority)
+    private void startSelectTarget()
+    {
+        if (enemyList.Count > 0 && !selectTargetOn)
+        {
+            InvokeRepeating("selectTarget", targetingTime - 1, targetingTime);
+            selectTargetOn = true;
+
+            Debug.Log("Start Select Target");
+        }
+        else if(enemyList.Count <= 0 && selectTargetOn)
+        {
+            CancelInvoke("selectTarget");
+            selectTargetOn = false;
+            Debug.Log("Stop Selet Target");
+        }
+    }
     private void selectTarget()
     {
         if (enemyList.Count == 0) return;
@@ -141,6 +163,8 @@ public class AlleyFleetAction : MonoBehaviour {
                 if(selectWeapon.readyToFire)
                 {
                     // Fire weapon
+                    currentTarget.GetComponent<EnemyFleetAction>().hit(selectWeapon.damage);
+
                     Debug.Log("Fire battery " + selectWeapon.weaponName);
 
                     selectWeapon.currentCoolTime = selectWeapon.coolTime;
