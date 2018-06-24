@@ -37,10 +37,7 @@ public class FleetAction : MonoBehaviour
             if (transform.position == dest) order = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            order = false;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
