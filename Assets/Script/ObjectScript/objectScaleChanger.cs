@@ -17,13 +17,13 @@ namespace Assets.Script.ObjectScript
         private Vector3 vector;
 
         public void scaleUpDown(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime){
-            StartCoroutine(scaleUpAndDownImage(getImage, upStart, upEnd, downEnd, upTime, downTime));
+            StartCoroutine(_scaleUpAndDown(getImage, upStart, upEnd, downEnd, upTime, downTime));
         }
         public void scaleRightAndBottomUp(Image getImage, float rightStart, float rightEnd, float downStart, float downEnd, float rightTime, float downTime) {
-            StartCoroutine(scaleRightAndBottomUpImage(getImage, rightStart, rightEnd, downStart, downEnd, rightTime, downTime));
+            StartCoroutine(_scaleRightAndBottomUp(getImage, rightStart, rightEnd, downStart, downEnd, rightTime, downTime));
         }
 
-        IEnumerator scaleUpAndDownImage(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime)
+        IEnumerator _scaleUpAndDown(Image getImage, float upStart, float upEnd, float downEnd, float upTime, float downTime)
         {
             upImage = getImage;
             resetParameter(upTime, upStart, upEnd);
@@ -54,7 +54,7 @@ namespace Assets.Script.ObjectScript
                 yield return null;
             }
         }
-        IEnumerator scaleRightAndBottomUpImage(Image getImage, float rightStart, float rightEnd, float downStart, float downEnd, float rightTime, float downTime)
+        IEnumerator _scaleRightAndBottomUp(Image getImage, float rightStart, float rightEnd, float downStart, float downEnd, float rightTime, float downTime)
         {
             upImage = getImage;
 

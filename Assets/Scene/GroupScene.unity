@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9d90d0d9117a945a11945af926c29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelPrefabs: {fileID: 0}
+  createPanel: {fileID: 0}
 --- !u!1 &303727005
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0
+  start: {x: 0, y: 0, z: 0}
+  end: {x: 0, y: 0, z: 0}
+  time: 0
 --- !u!1 &664027566
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -673,6 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9d90d0d9117a945a11945af926c29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelPrefabs: {fileID: 0}
+  createPanel: {fileID: 0}
 --- !u!1 &667231374
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +835,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0
+  start: {x: 0, y: 0, z: 0}
+  end: {x: 0, y: 0, z: 0}
+  time: 0
 --- !u!1 &686797609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9d90d0d9117a945a11945af926c29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelPrefabs: {fileID: 0}
+  createPanel: {fileID: 0}
 --- !u!1 &1950286747
 GameObject:
   m_ObjectHideFlags: 0

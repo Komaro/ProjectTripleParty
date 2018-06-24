@@ -9,13 +9,11 @@ namespace Assets.Script.ObjectScript
     {
         public GameObject filterPrefabs;
         public GameObject filterPanel;
-        public Button scrollRect;
         public bool closePanel;
         
         private void Start()
         {
             filterPrefabs = Resources.Load("Prefabs/FilteringPanel") as GameObject;
-            scrollRect = GetComponent<Button>();
             closePanel = true;
         }
         
@@ -35,7 +33,7 @@ namespace Assets.Script.ObjectScript
 
         public void createPanel()
         {
-            if (GetComponent<Button>().enabled == true)
+            if (GetComponent<Button>().enabled)
             {
                 CreatePanel();
             }

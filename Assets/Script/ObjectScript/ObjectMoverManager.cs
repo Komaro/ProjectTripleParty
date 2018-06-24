@@ -6,6 +6,11 @@ namespace Assets.Script.ObjectScript
 {
     public class ObjectMoverManager : MonoBehaviour
     {
+        public float animTime;
+        public Vector3 start;
+        public Vector3 end;
+        public float time;
+        
         public void ObjectMove(GameObject getObject, Vector3 dest, float moveTime)
         {
             StartCoroutine(_ObjectMove(getObject, dest, moveTime));
@@ -14,20 +19,19 @@ namespace Assets.Script.ObjectScript
         {
             StartCoroutine(_ObjectRotation_180(getObject,rotationAngle));
         }
-
-
+        
         IEnumerator _ObjectMove(GameObject getObject, Vector3 dest, float moveTime)
         {
-            float animTime = moveTime;
-            Vector3 start = getObject.transform.localPosition;
-            Vector3 end = dest;
-            float time = 0f;
+            animTime = moveTime;
+            start = getObject.transform.localPosition;
+            end = dest;
+            time = 0f;
 
             Vector3 vector = new Vector3(0f, 0f);
             
             while (!getObject.transform.localPosition.Equals(end))
             {
-                Debug.Log(getObject.transform.localPosition.x + " " + getObject.transform.localPosition.y);
+                //Debug.Log(getObject.transform.localPosition.x + " " + getObject.transform.localPosition.y);
 
                 time += Time.deltaTime / animTime;
 
