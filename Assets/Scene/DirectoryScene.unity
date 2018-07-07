@@ -1259,7 +1259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filterPrefabs: {fileID: 0}
   filterPanel: {fileID: 0}
-  scrollRect: {fileID: 0}
   closePanel: 0
 --- !u!114 &1334670019
 MonoBehaviour:

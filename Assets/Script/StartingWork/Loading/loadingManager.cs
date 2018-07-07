@@ -20,7 +20,7 @@ public class loadingManager : MonoBehaviour {
         yield return null;
 
         progressBar = inputImage;
-        AsyncOperation loadingOper = SceneManager.LoadSceneAsync("MainScene");
+        AsyncOperation loadingOper = SceneManager.LoadSceneAsync(sceneName);
         loadingOper.allowSceneActivation = false;
 
         float timer = 0.0f;

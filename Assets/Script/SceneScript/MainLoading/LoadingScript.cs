@@ -11,5 +11,6 @@ public class LoadingScript : MonoBehaviour {
         gameObject.AddComponent<loadingManager>();
 
         GetComponent<loadingManager>().sceneLoad(GetComponent<Image>(), "MainScene");
+        CharacterList.getInstance();
     }
 }

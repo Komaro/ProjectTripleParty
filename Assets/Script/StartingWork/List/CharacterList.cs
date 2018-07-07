@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine;
 using Assets.Script.StartingWork.List;
-using Assets.Script.DB;
 using System.Data;
 using System.IO;
 
@@ -54,17 +54,20 @@ public class CharacterList{
 
         return filteringCharacters;
     } // Character country filtering
-
+    
     private void createCharacterList()
     {
-        IDataReader reader = DBmanager.getInstance().loadDirectory();
-
-        while(reader.Read())
+        List<Dictionary<string, object>> characterList = CSVManager.Read("Character/PTP_Database");
+        
+        for(int i = 0; i < characterList.Count; i++)
         {
-            Characters.Add(new CharacterForm(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), switchCountry(reader.GetInt32(3))));
+            Characters.Add(new CharacterForm((int)characterList[i]["no"],
+                                             characterList[i]["name"].ToString(),
+                                             (int)characterList[i]["image"], 
+                                             switchCountry((int)characterList[i]["country"])));
         }
-    }
-    
+    }// Read character data(csv)
+
     private string switchCountry(int countryNo)
     {
         string country = null;
@@ -98,5 +101,5 @@ public class CharacterList{
         }
 
         return country;
-    }
+    } // Convert code to country name
 }
