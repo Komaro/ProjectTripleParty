@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/GroupScene.unity
     guid: 6a8772fa69bdd7646b6722da315b7f01
+  - enabled: 1
+    path: Assets/Scene/NavyGroupScene.unity
+    guid: 6c24cb7b1239cb64b9b6fde344cb622a
+  - enabled: 1
+    path: Assets/Scene/NavyGroupSelectScene.unity
+    guid: febb55893f9d2b24d800b20e69580bc8
   m_configObjects: {}

@@ -8,9 +8,12 @@ public class LoadingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        CharacterList.getInstance();
+        UserData.getInstance();
+
         gameObject.AddComponent<loadingManager>();
 
         GetComponent<loadingManager>().sceneLoad(GetComponent<Image>(), "MainScene");
-        CharacterList.getInstance();
     }
 }

@@ -5,27 +5,29 @@ using UnityEngine.UI;
 using Assets.Script.StartingWork.List;
 using Assets.Script.ObjectScript;
 
+// Use DirectoryScene : CharacterList ScrollView
+
 public class DirectoryContentSize : MonoBehaviour {
 
     public GameObject directoryPrefabs;
     public GameObject newObject;
 
     private ScrollRect scrollRect;
-    private int childCount;
+    
 
 	// Use this for initialization
 	void Start () {
 
-        directoryPrefabs = Resources.Load("Prefabs/DictionaryCharacterCard") as GameObject;
+        directoryPrefabs = Resources.Load("Prefabs/DirectoryCharacterCard") as GameObject;
         scrollRect = GetComponent<ScrollRect>();
 
-        StartCoroutine(addContentItem_cor());
+        StartCoroutine(addContentItem());
 	}
 
-    IEnumerator addContentItem_cor()
+    IEnumerator addContentItem()
     {
         List<CharacterForm> characters = CharacterList.getInstance().getCharacterList();
-        
+
         foreach (CharacterForm character in characters)
         {
             newObject = MonoBehaviour.Instantiate(directoryPrefabs, scrollRect.content);
@@ -41,20 +43,26 @@ public class DirectoryContentSize : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
 
-        setContentSize();
+        setContentSize(newObject);
     }
 
-    void setContentSize()
+    private int childCount;
+    private int childHeight;
+    private int fixLineCount = 5;
+    private int fixContentWidth = 1280;
+
+    void setContentSize(GameObject item)
     {
         childCount = scrollRect.content.childCount;
+        childHeight = (int)item.transform.GetComponent<RectTransform>().rect.height;
         
         if (childCount != 0)
         {
-            float contentHeight = ((childCount / 6) * 270);
+            float contentHeight = ((childCount / fixLineCount) * childHeight);
 
-            if (childCount % 6 > 0) contentHeight += 270;
+            if (childCount % fixLineCount > 0) contentHeight += childHeight;
 
-            scrollRect.content.sizeDelta = new Vector2(1280, contentHeight);
+            scrollRect.content.sizeDelta = new Vector2(fixContentWidth, contentHeight + 10); // Add scpacing
         }
-    }
+    } 
 }

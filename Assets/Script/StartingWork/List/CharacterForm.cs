@@ -14,15 +14,17 @@ namespace Assets.Script.StartingWork.List
         public string Name;
         public int No;
         public string Country;
+        public string group;
 
         // not complete
-        public CharacterForm(int ImageNo, string Name, int No, string Country)
+        public CharacterForm(int ImageNo, string Name, int No, string Country, string group)
         {
-            cutSprite = Resources.Load<Sprite>("Image/test_" + ImageNo);
-            fullSprite = Resources.Load<Sprite>("Image/full_test_" + ImageNo);
+            cutSprite = Resources.Load<Sprite>("Character/test_" + ImageNo);
+            fullSprite = Resources.Load<Sprite>("Character/full_test_" + ImageNo);
             this.Name = Name;
             this.No = No;
             this.Country = Country;
+            this.group = group;
         }
     }
 }

@@ -42,7 +42,7 @@ public class CharacterList{
         }
 
         return filteringCharacters;
-    } // Character no filtering
+    } // Character no(number) filtering
     public List<CharacterForm> getCharacterList(string countryFilter)
     {
         filteringCharacters.Clear();
@@ -57,14 +57,15 @@ public class CharacterList{
     
     private void createCharacterList()
     {
-        List<Dictionary<string, object>> characterList = CSVManager.Read("Character/PTP_Database");
+        List<Dictionary<string, object>> characterList = CSVManager.Read("Character/CharacterList");
         
         for(int i = 0; i < characterList.Count; i++)
         {
             Characters.Add(new CharacterForm((int)characterList[i]["no"],
                                              characterList[i]["name"].ToString(),
                                              (int)characterList[i]["image"], 
-                                             switchCountry((int)characterList[i]["country"])));
+                                             switchCountry((int)characterList[i]["country"]),
+                                             switchGroup((int)characterList[i]["group"])));
         }
     }// Read character data(csv)
 
@@ -102,4 +103,28 @@ public class CharacterList{
 
         return country;
     } // Convert code to country name
+    private string switchGroup(int groupNo)
+    {
+        string group = null;
+
+        switch (groupNo)
+        {
+            case 0:
+
+                group = "Navy";
+                break;
+
+            case 1:
+
+                group = "Land";
+                break;
+
+            case 2:
+
+                group = "Air";
+                break;
+        }
+
+        return group;
+    } // Convert code to group name
 }
