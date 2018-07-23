@@ -17,6 +17,7 @@ public class UserData{
 
     public UserForm User;
     private List<List<int>> fleetFormation;
+    private List<int> Ship;
     
     public static UserData getInstance()
     {
@@ -46,6 +47,15 @@ public class UserData{
                             (int)loadUserData[0]["material"],
                             (int)loadUserData[0]["ammunition"]);
     } // Load User/UserInformation.csv
+    public void uploadShipData()
+    {
+        List<Dictionary<string, object>> loadShipData = CSVManager.Read("User/Ship");
+
+        for(int i = 0; i < loadShipData.Count; i++)
+        {
+            Ship.Add((int)loadShipData[i]["no"]);
+        }
+    } // Load User/Ship.csv
     public void uploadFleetFormation()
     {
         fleetFormation = new List<List<int>>();
@@ -68,7 +78,7 @@ public class UserData{
                 //Debug.Log(loadFleetFormation[i]["ship" + shipNum]);
             }
         }
-    }// Load User/FleetFormation.csv
+    } // Load User/FleetFormation.csv
 
     public List<List<int>> getFleetFormation()
     {

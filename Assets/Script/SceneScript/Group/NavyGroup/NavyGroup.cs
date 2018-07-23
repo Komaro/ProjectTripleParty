@@ -46,16 +46,28 @@ public class NavyGroup : MonoBehaviour {
         // Reset slotObject
         foreach(GameObject slot in slotObject)
         {
+            Text[] shipSlotText = slot.GetComponentsInChildren<Text>();
+            shipSlotText[0].text = "";
+            shipSlotText[1].text = "";
+
             slot.GetComponentInChildren<Text>().text = "";
+            slot.GetComponent<ShipSlotButton>().Empty = true;
         }
         
         // Input ship data
         int selectShipSlot = 1;
 
-        foreach (int i in fleetFormation[fleetNum - 1])
+        foreach (int shipNo in fleetFormation[fleetNum - 1])
         {
-            //TestScript
-            GameObject.Find("Slot_" + selectShipSlot++).GetComponentInChildren<Text>().text = i.ToString();
+            GameObject shipSlot = GameObject.Find("ShipSlot_" + selectShipSlot++);
+            shipSlot.GetComponent<ShipSlotButton>().No = shipNo;
+            shipSlot.GetComponent<ShipSlotButton>().Empty = false;
+
+            Text[] shipSlotText = shipSlot.GetComponentsInChildren<Text>();
+            shipSlotText[0].text = shipNo.ToString();
+            shipSlotText[1].text = CharacterList.getInstance().getCharacterName(shipNo);
+            
+            //GameObject.Find("ShipSlot_" + selectShipSlot++).GetComponentInChildren<Text>().text = CharacterList.getInstance().getCharacterName(shipNo);
         }
     }
 

@@ -6,10 +6,10 @@ using Assets.Script.StartingWork.User;
 
 public class ParameterManager : MonoBehaviour {
 
-    public Text level;
-    public Text fuel;
-    public Text material;
-    public Text ammunition;
+    public GameObject level;
+    public GameObject fuel;
+    public GameObject material;
+    public GameObject ammunition;
 
     public int levelCount;
     public int fuelAmount;
@@ -20,10 +20,10 @@ public class ParameterManager : MonoBehaviour {
 	void Start () {
         initializationParameter();
 
-        level.text = levelCount.ToString();
-        fuel.text = fuelAmount.ToString();
-        material.text = materialAmount.ToString();
-        ammunition.text = ammuntionAmount.ToString();
+        level.GetComponent<Text>().text = levelCount.ToString();
+        fuel.GetComponent<Text>().text = fuelAmount.ToString();
+        material.GetComponent<Text>().text = materialAmount.ToString();
+        ammunition.GetComponent<Text>().text = ammuntionAmount.ToString();
     }
 	
 	// Update is called once per frame
@@ -33,11 +33,6 @@ public class ParameterManager : MonoBehaviour {
 
     public void initializationParameter()
     {
-        level = GameObject.Find("Level").GetComponent<Text>();
-        fuel = GameObject.Find("FuelAmount").GetComponent<Text>();
-        material = GameObject.Find("MaterialAmount").GetComponent<Text>();
-        ammunition = GameObject.Find("AmmunitionAmount").GetComponent<Text>();
-
         levelCount = UserData.getInstance().User.level;
         fuelAmount = UserData.getInstance().User.fuel;
         materialAmount = UserData.getInstance().User.material;

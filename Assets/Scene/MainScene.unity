@@ -736,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -828, y: -430}
+  m_AnchoredPosition: {x: -815.1, y: -419}
   m_SizeDelta: {x: 55, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &594877684
@@ -760,11 +760,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b6fc1e691ac1d4b458037f228572bf71, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -850,8 +850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -828.00006, y: -248}
-  m_SizeDelta: {x: 200, y: 170}
+  m_AnchoredPosition: {x: -815.1, y: -213.5}
+  m_SizeDelta: {x: 225.8, y: 191.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753261139
 MonoBehaviour:
@@ -1158,8 +1158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -828.00006, y: -430}
-  m_SizeDelta: {x: 200, y: 170}
+  m_AnchoredPosition: {x: -815.1, y: -419}
+  m_SizeDelta: {x: 225.8, y: 191.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096230065
 MonoBehaviour:
@@ -1431,7 +1431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -828, y: -248}
+  m_AnchoredPosition: {x: -815.1, y: -213.50002}
   m_SizeDelta: {x: 55, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544722065
@@ -1455,11 +1455,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b6fc1e691ac1d4b458037f228572bf71, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -1520,10 +1520,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764fcb24ce1712444b5b714b4554d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  fuel: {fileID: 0}
-  material: {fileID: 0}
-  ammunition: {fileID: 0}
+  level: {fileID: 1816914149}
+  fuel: {fileID: 196028783}
+  material: {fileID: 291286309}
+  ammunition: {fileID: 92929325}
   levelCount: 0
   fuelAmount: 0
   materialAmount: 0

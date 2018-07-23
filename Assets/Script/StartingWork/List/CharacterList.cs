@@ -11,7 +11,10 @@ public class CharacterList{
     private static CharacterList instance;
 
     private List<CharacterForm> Characters = new List<CharacterForm>();
+    private CharacterForm[] connectCharacters;
+
     private List<CharacterForm> filteringCharacters = new List<CharacterForm>();
+    
 
     public CharacterList()
     {
@@ -54,45 +57,61 @@ public class CharacterList{
 
         return filteringCharacters;
     } // Character country filtering
+
+    public string getCharacterName(int no)
+    {
+        return connectCharacters[no - 1].Name;
+    }// Character name return
+    public Sprite getCharacterFullImage(int no)
+    {
+        return connectCharacters[no - 1].fullSprite;
+    } // Character full image return
     
     private void createCharacterList()
     {
         List<Dictionary<string, object>> characterList = CSVManager.Read("Character/CharacterList");
+
+        connectCharacters = new CharacterForm[characterList.Count];
         
         for(int i = 0; i < characterList.Count; i++)
         {
-            Characters.Add(new CharacterForm((int)characterList[i]["no"],
+            CharacterForm createCharacterForm = new CharacterForm((int)characterList[i]["no"],
                                              characterList[i]["name"].ToString(),
-                                             (int)characterList[i]["image"], 
+                                             (int)characterList[i]["image"],
                                              switchCountry((int)characterList[i]["country"]),
-                                             switchGroup((int)characterList[i]["group"])));
+                                             switchGroup((int)characterList[i]["group"]));
+
+            Characters.Add(createCharacterForm);
+
+            connectCharacters[i] = createCharacterForm;
         }
     }// Read character data(csv)
 
+    private enum Faction {USA = 1, KGM, HMS, IJN}
     private string switchCountry(int countryNo)
     {
         string country = null;
 
         switch(countryNo)
         {
-            case 0:
-
-                country = "미정";
-                break;
-
-            case 1:
+            case (int)Faction.USA:
 
                 country = "USA";
                 break;
 
-            case 2:
+            case (int)Faction.KGM:
 
                 country = "미정";
                 break;
 
-            case 3:
+            case (int)Faction.HMS:
 
                 country = "영국";
+                break;
+
+            case (int)Faction.IJN:
+
+                country = "미정";
                 break;
 
             default:
@@ -103,23 +122,25 @@ public class CharacterList{
 
         return country;
     } // Convert code to country name
+
+    private enum Group {Navy, Land, Air}
     private string switchGroup(int groupNo)
     {
         string group = null;
 
         switch (groupNo)
         {
-            case 0:
+            case (int)Group.Navy:
 
                 group = "Navy";
                 break;
 
-            case 1:
+            case (int)Group.Land:
 
                 group = "Land";
                 break;
 
-            case 2:
+            case (int)Group.Air:
 
                 group = "Air";
                 break;

@@ -1,21 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ShipSlotButton : MonoBehaviour {
-    
-    public int No;
-    
-    private void OnMouseOver()
-    {
-        
-    } // View character status
 
-    private void ShipSlotButtonOnClick()
+    public int No
     {
-        UserData.getInstance().beforeScene = "NavyGroupScene";
-
-        SceneManager.LoadScene("NavyGroupSelectScene");
-    } // Open ship select directory
+        get;
+        set;
+    }
+    public bool Empty
+    {
+        get;
+        set;
+    }
+    
+    
+    public void ShipSlotButtonOnClick()
+    {
+        if (!Empty)
+        {
+            GameObject.Find("CharacterImage").GetComponent<Image>().sprite = CharacterList.getInstance().getCharacterFullImage(No);
+        }
+    } // View slot ship information
 }
