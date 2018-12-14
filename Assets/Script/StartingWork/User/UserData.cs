@@ -14,6 +14,7 @@ public class UserData{
         get;
         set;
     }
+    public int selectGroup;
 
     public UserForm User;
     private List<List<int>> fleetFormation;
@@ -83,5 +84,5 @@ public class UserData{
     public List<List<int>> getFleetFormation()
     {
         return fleetFormation;
-    } 
+    } // Return fleetFormation
 }

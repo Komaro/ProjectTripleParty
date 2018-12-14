@@ -86,30 +86,29 @@ public class CharacterList{
             connectCharacters[i] = createCharacterForm;
         }
     }// Read character data(csv)
-
-    private enum Faction {USA = 1, KGM, HMS, IJN}
+    
     private string switchCountry(int countryNo)
     {
         string country = null;
 
         switch(countryNo)
         {
-            case (int)Faction.USA:
+            case (int)Properties.Faction.USA:
 
                 country = "USA";
                 break;
 
-            case (int)Faction.KGM:
+            case (int)Properties.Faction.KGM:
 
                 country = "미정";
                 break;
 
-            case (int)Faction.HMS:
+            case (int)Properties.Faction.HMS:
 
                 country = "영국";
                 break;
 
-            case (int)Faction.IJN:
+            case (int)Properties.Faction.IJN:
 
                 country = "미정";
                 break;
@@ -122,25 +121,23 @@ public class CharacterList{
 
         return country;
     } // Convert code to country name
-
-    private enum Group {Navy, Land, Air}
     private string switchGroup(int groupNo)
     {
         string group = null;
 
         switch (groupNo)
         {
-            case (int)Group.Navy:
+            case (int)Properties.Group.Navy:
 
                 group = "Navy";
                 break;
 
-            case (int)Group.Land:
+            case (int)Properties.Group.Land:
 
                 group = "Land";
                 break;
 
-            case (int)Group.Air:
+            case (int)Properties.Group.Air:
 
                 group = "Air";
                 break;

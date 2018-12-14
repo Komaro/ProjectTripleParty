@@ -6,6 +6,11 @@ using Assets.Script.StartingWork.List;
 using Assets.Script.ObjectScript;
 
 // Use DirectoryScene : CharacterList ScrollView
+//
+// #######
+// NOT USE
+// #######
+//
 
 public class DirectoryContentSize : MonoBehaviour {
 
@@ -21,7 +26,7 @@ public class DirectoryContentSize : MonoBehaviour {
         directoryPrefabs = Resources.Load("Prefabs/DirectoryCharacterCard") as GameObject;
         scrollRect = GetComponent<ScrollRect>();
 
-        StartCoroutine(addContentItem());
+        //StartCoroutine(addContentItem());
 	}
 
     IEnumerator addContentItem()
@@ -40,7 +45,7 @@ public class DirectoryContentSize : MonoBehaviour {
 
             newObject.AddComponent<ObjectScaleChanger>().scaleUpDown(newObject.GetComponent<Image>(), 0.2f, 1.1f, 1.0f, 0.7f, 0.8f);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         setContentSize(newObject);
@@ -62,7 +67,7 @@ public class DirectoryContentSize : MonoBehaviour {
 
             if (childCount % fixLineCount > 0) contentHeight += childHeight;
 
-            scrollRect.content.sizeDelta = new Vector2(fixContentWidth, contentHeight + 10); // Add scpacing
+            scrollRect.content.sizeDelta = new Vector2(fixContentWidth, contentHeight + (10 * (childCount / fixLineCount))); // Add scpacing
         }
     } 
 }

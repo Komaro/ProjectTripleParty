@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 87508104}
   - component: {fileID: 87508103}
   - component: {fileID: 87508102}
-  - component: {fileID: 87508105}
   m_Layer: 5
   m_Name: CharacterList ScrollView
   m_TagString: Untagged
@@ -251,19 +250,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &87508105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 87508100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 881012e2fbeb9d944985dd137e56b2df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  directoryPrefabs: {fileID: 0}
-  newObject: {fileID: 0}
 --- !u!1 &120955195
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +582,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &572785897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 572785898}
+  - component: {fileID: 572785899}
+  m_Layer: 0
+  m_Name: DirectoryScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572785898
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572785897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &572785899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572785897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89164748d59f0014b8f2a2f349b1e570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directoryPrefabs: {fileID: 0}
+  newObject: {fileID: 0}
+  CharacterListScrollView: {fileID: 87508100}
+  enterGroup: 0
 --- !u!1 &719755712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1158100790
 GameObject:
@@ -1206,7 +1236,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334670016
 GameObject:
@@ -1699,7 +1729,7 @@ RectTransform:
   - {fileID: 1334670017}
   - {fileID: 1349904521}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1850,7 +1880,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1897433653}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.6615905
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

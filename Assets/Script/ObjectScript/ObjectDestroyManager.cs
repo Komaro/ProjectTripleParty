@@ -27,6 +27,7 @@ public class ObjectDestroyManager{
         return instance;
     }
 
+
     public bool outClickDestroy(string tag, GraphicRaycaster graphicRay) { return _outClickDestroy(tag, graphicRay); }
 
     private bool _outClickDestroy(string tag, GraphicRaycaster graphicRay)

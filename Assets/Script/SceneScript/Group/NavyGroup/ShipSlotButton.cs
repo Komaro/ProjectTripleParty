@@ -7,23 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class ShipSlotButton : MonoBehaviour {
 
-    public int No
-    {
-        get;
-        set;
-    }
-    public bool Empty
-    {
-        get;
-        set;
-    }
-    
+    public int slotNum;
+
+    public int ShipNo;
+    public bool Empty;
+    public GameObject NavyGroup;
     
     public void ShipSlotButtonOnClick()
     {
         if (!Empty)
         {
-            GameObject.Find("CharacterImage").GetComponent<Image>().sprite = CharacterList.getInstance().getCharacterFullImage(No);
+            GameObject.Find("CharacterImage").GetComponent<Image>().sprite = CharacterList.getInstance().getCharacterFullImage(ShipNo);
         }
+
+        NavyGroup.GetComponent<NavyGroup>().selectMemberSlot = ShipNo;
     } // View slot ship information
 }

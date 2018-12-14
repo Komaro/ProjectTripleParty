@@ -12,8 +12,7 @@ public class NavySlotButton : MonoBehaviour {
     }
 
     public void NavySlotButtonOnClick()
-    {
-        
+    {   
         GameObject.Find("NavyGroupScript").GetComponent<NavyGroup>().SendMessage("setFleetMember", fleetNum);
     }
 }
